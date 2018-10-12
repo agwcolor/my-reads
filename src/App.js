@@ -9,7 +9,20 @@ import Shelf from './shelf'
 
 class BooksApp extends React.Component {
   state = {
-    showSearchPage: false
+    books: []
+    //shelves: ["Currently Reading", "Want to Read", "Read"]
+  }
+
+//when component mounts gets the books from BooksAPI db
+//BooksAPI.getAll() returns promise
+//implicit return sets state to all books
+  componentDidMount() {
+    BooksAPI.getAll()
+    .then(response => {
+    this.setState({books: response});
+    console.log(JSON.stringify(response))
+        console.log("hi" + JSON.stringify(response[0].title))
+   });
   }
 
   render() {
