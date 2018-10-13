@@ -5,19 +5,28 @@ import { Route, Link } from "react-router-dom";
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+let imgStyle={};
+
 class Book extends React.Component {
+
+imgStyle = {
+    width: 128,
+    height: 193,
+    /*backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}>*/
+    backgroundImage: 'url(' + `${this.props.book.imageLinks.thumbnail}` +')'
+    /*backgroundImage: 'url(' + imgUrl + ')',*/
+};
 
 
   render() {
+    console.log(this.imgStyle);
+
     return (
       <li>
         <div className="book">
           <div className="book-top">
           <div className="book-cover"
-               style={{ width: 128,
-                        height: 193,
-                        /*backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}>*/
-                        backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}>
+               style={this.imgStyle}>
 
           </div>
           </div>
