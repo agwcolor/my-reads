@@ -11,6 +11,7 @@ import Search from './search'
 class BooksApp extends React.Component {
 
   render() {
+    const { books, update } = this.props
     return (
 
       <div className="app">
@@ -24,20 +25,19 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <div>
                 <Shelf
-                  update={this.props.update}
+                  update={update}
                   name ="Currently Reading"
-                  books={this.props.books
-                    .filter(book => book.shelf === "currentlyReading")}
+                  books={books.filter(book => book.shelf === "currentlyReading")}
                 />
                 <Shelf
-                  update={this.props.update}
+                  update={update}
                   name ="Want to Read"
-                  books={this.props.books.filter(book => book.shelf === "wantToRead")}
+                  books={books.filter(book => book.shelf === "wantToRead")}
                 />
                 <Shelf
-                  update={this.props.update}
+                  update={update}
                   name ="Read"
-                  books={this.props.books.filter(book => book.shelf === "read")}
+                  books={books.filter(book => book.shelf === "read")}
                 />
               </div>
            </div>

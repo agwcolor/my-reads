@@ -18,12 +18,13 @@ imgStyle = {
     width: 128,
     height: 193,
     /*backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}>*/
-    backgroundImage: 'url(' + `${this.props.book.imageLinks.thumbnail}` +')'
+    backgroundImage: 'url(' + `${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}` +')'
     /*backgroundImage: 'url(' + imgUrl + ')',*/
 };
 
 
   render() {
+    const { book, update } = this.props //passed from shelf
     console.log(this.imgStyle);
 //    console.log(this.props.book);
 //    console.log(this.props.book.shelf);
@@ -34,13 +35,13 @@ imgStyle = {
 
           <div className="book-top">
             <div className="book-cover"
-               style={this.imgStyle}>
+               style={this.imgStyle }>
             </div>
 
             <div className="book-shelf-changer">
 
-             <select value= {this.props.book.shelf} onChange={(e) =>
-              { this.props.update(this.props.book, e.target.value) }}>
+             <select value= {book.shelf} onChange={(e) =>
+              { update(book, e.target.value) }}>
 
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
@@ -53,8 +54,8 @@ imgStyle = {
            </div>
 
           </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
+        <div className="book-title">{book.title}</div>
+        <div className="book-authors">{book.authors}</div>
      </div>
    )
  }

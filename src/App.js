@@ -3,6 +3,8 @@ import * as BooksAPI from './BooksAPI'
 import ReactDOM from 'react-dom'
 import './App.css'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Shelf from './shelf'
+import Nav from './nav'
 import BooksApp from './BooksApp'
 
 import Search from './search'
@@ -13,6 +15,9 @@ class App extends React.Component {
     books: []
   }
 
+//when component mounts gets the books from BooksAPI db
+//BooksAPI.getAll() returns promise
+//implicit return sets state to all books
   componentDidMount() {
     BooksAPI.getAll()
     .then(response => {
