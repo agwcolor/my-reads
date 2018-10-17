@@ -2,8 +2,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Route, Link } from "react-router-dom";
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
+import Search from './search'
+import App from './App'
+import Shelf from './shelf'
+
+
 
 let imgStyle={};
 
@@ -20,18 +25,23 @@ imgStyle = {
 
   render() {
     console.log(this.imgStyle);
+//    console.log(this.props.book);
+//    console.log(this.props.book.shelf);
 
     return (
-      <li>
+      <div>
         <div className="book">
-          <div className="book-top">
-          <div className="book-cover"
-               style={this.imgStyle}>
 
-          </div>
-          </div>
+          <div className="book-top">
+            <div className="book-cover"
+               style={this.imgStyle}>
+            </div>
+
             <div className="book-shelf-changer">
-             <select>
+
+             <select value= {this.props.book.shelf} onChange={(e) =>
+              { this.props.update(this.props.book, e.target.value) }}>
+
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -39,10 +49,13 @@ imgStyle = {
               <option value="none">None</option>
              </select>
             </div>
+
            </div>
+
+          </div>
         <div className="book-title">{this.props.book.title}</div>
         <div className="book-authors">{this.props.book.authors}</div>
-     </li>
+     </div>
    )
  }
 }
