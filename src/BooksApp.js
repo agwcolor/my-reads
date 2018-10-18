@@ -1,11 +1,7 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import ReactDOM from 'react-dom'
 import './App.css'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Shelf from './shelf'
-import App from './App'
-import Search from './search'
 
 
 class BooksApp extends React.Component {

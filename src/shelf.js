@@ -1,12 +1,7 @@
 
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
 import './App.css'
-import ReactDOM from 'react-dom'
-import { Route, Link } from "react-router-dom";
 import Book from './book'
-import App from './App'
-import BooksApp from './BooksApp'
 
 class Shelf extends React.Component {
 

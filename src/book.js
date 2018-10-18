@@ -1,33 +1,17 @@
 
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Route, Link } from "react-router-dom";
-import * as BooksAPI from './BooksAPI'
 import './App.css'
-import Search from './search'
-import App from './App'
-import Shelf from './shelf'
-
-
-
-let imgStyle={};
 
 class Book extends React.Component {
 
-imgStyle = {
+  render() {
+    const { book, update, shelf } = this.props //passed from shelf
+    let imgStyle = {
     width: 128,
     height: 193,
-    /*backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}>*/
-    backgroundImage: 'url(' + `${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}` +')'
-    /*backgroundImage: 'url(' + imgUrl + ')',*/
+    backgroundImage: `url("${book.imageLinks ? book.imageLinks.thumbnail : ''}")`
+
 };
-
-
-  render() {
-    const { book, update } = this.props //passed from shelf
-    console.log(this.imgStyle);
-//    console.log(this.props.book);
-//    console.log(this.props.book.shelf);
 
     return (
       <div>
@@ -35,19 +19,15 @@ imgStyle = {
 
           <div className="book-top">
             <div className="book-cover"
-               style={this.imgStyle }>
+               style={imgStyle }>
             </div>
-
             <div className="book-shelf-changer">
-
-             <select value= {book.shelf} onChange={(e) =>
-              { update(book, e.target.value) }}>
-
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
+             <select value= {shelf} onChange={(e) =>{ update(book, e.target.value) }}>
+               <option value="move" disabled>Move to...</option>
+               <option value="currentlyReading">Currently Reading</option>
+               <option value="wantToRead">Want to Read</option>
+               <option value="read">Read</option>
+               <option value="none">None</option>
              </select>
             </div>
 
