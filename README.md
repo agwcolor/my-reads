@@ -1,92 +1,79 @@
-# MyReads Project
+my-reads
+=====================
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+# My Reads Book App
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+## Table of Contents
+* [Installation](#installation)
+* [Instructions](#instructions)
+* [Background](#background)
+* [Dependencies](#dependencies)
+* [Contributing](#contributing)
+* [License](#license)
 
-## TL;DR
+## Installation
 
-To get started developing right away:
+To install the app on your desktop:
+1. Navigate to https://github.com/agwcolor/My-Reads 
+2. Click the green 'Clone or Download' button to copy the directory or zipfile to your desktop machine.
+3. If you have a zipfile, extract it.
+4. From inside the my-reads folder, install any node-module dependencies using 
+    ````npm install --save ````
+    You will need the following : react, react-dom, react-router-dom . IF you have problems, please check the the package.json file for reference.  Note : Not all dependencies listed there are required.
+5. From inside the my-reads folder, run ````npm start````.  
+   A browser window will open up to http://localhost:3000/ .  
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
 
-## What You're Getting
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+## Instructions
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+This is the My Reads book app
 
-## Backend Server
+1. (/search) - Find a book | Change categories : Click the "+" icon on the lower right side of the screen to open the search page. Search for books by both title and author. The page will dynamically update as you type.  You can change the category for each book - Currently Reading, Want to Read, Reading, None (will remove from view) . The category will persist on the main page.
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+2. (/) - See your books | Change cagegories : On the main page you can see the books that you are currently Reading, Want to Read, or have Read. Change the categories as you need to from here using the small arrow next to each book icon. 
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
+## Background
+This project demonstrates an example of a React Controlled component where the UI dynamically updates as the user interacts with it (e.g. the book categories and the search bar). The state of the React data is always up to date, the "single source of truth", and creates a dynamic user experience. (https://reactjs.org/docs/uncontrolled-components.html)
 
-### `getAll`
+This project also implements routing using <Browser Router> which uses the HTML5 history API to keep the UI in sync with the URL (https://reacttraining.com/react-router/web/api/BrowserRouter). 
 
-Method Signature:
+For more about how the project is set up see : [Project Overview](Overview.md) 
 
-```js
-getAll()
-```
+## Dependencies
+Using NPM install, install the following project dependencies in the /my-reads folder from the command line if you don't have them already.  Check the package.json file if you have any issues. :
 
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
+"react": "^16.5.2",
+"react-dom": "^16.5.2",
+"react-router-dom": "^4.3.1"
 
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query)
-```
-
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+You will need internet access. The BooksAPI.js relies on some data on remote servers.
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Ideas regarding how to approach this project were were found in Udacity course resources, especially using the walkthrough by Ryan Waite (https://www.youtube.com/watch?v=N8bU1oWlLwY&feature=youtu.be), the Knowledge Boards, as well as Udacity course materials on React, React JS (https://reactjs.org/), and Stack Overflow. 
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## License
+
+MIT License
+
+Copyright (c) [2018] [Abbie Weisenbloom]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---------------------------------------
